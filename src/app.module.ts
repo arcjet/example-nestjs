@@ -19,8 +19,6 @@ import { BotsModule } from './bots/bots.module.js';
     BotsModule,
   ],
   controllers: [AppController],
-  providers: [
-    AppService,
-  ],
+  providers: [AppService],
 })
 export class AppModule {}
