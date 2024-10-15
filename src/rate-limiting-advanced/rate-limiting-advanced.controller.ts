@@ -39,6 +39,16 @@ export class RateLimitingAdvancedController {
     this.logger.log(`Arcjet: id = ${decision.id}`);
     this.logger.log(`Arcjet: decision = ${decision.conclusion}`);
 
+    // Use the IP analysis to customize the response based on the country
+    if (decision.ip.hasCountry() && decision.ip.country == 'JP') {
+      return this.rateLimitingAdvancedController.messageJP();
+    }
+
+    // Always deny requests from VPNs
+    if (decision.ip.isVpn()) {
+      throw new HttpException('VPNs are forbidden', HttpStatus.FORBIDDEN);
+    }
+
     if (decision.isDenied()) {
       if (decision.reason.isRateLimit()) {
         throw new HttpException(

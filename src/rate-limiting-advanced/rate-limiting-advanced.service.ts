@@ -7,4 +7,10 @@ export class RateLimitingAdvancedService {
       message: 'Hello world',
     };
   }
+
+  messageJP(): { message: string } {
+    return {
+      message: 'Konnichiwa!',
+    };
+  }
 }
