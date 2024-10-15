@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
-export class BotsService {
+export class BotsAdvancedService {
   message(): { message: string } {
     return {
       message: 'Hello world',

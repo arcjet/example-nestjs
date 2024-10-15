@@ -1,0 +1,34 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: daily
+    assignees:
+      - blaine-arcjet
+      - e-moran
+    reviewers:
+      - blaine-arcjet
+      - e-moran
+    groups:
+      arcjet-apps-major:
+        update-types:
+          - major
+      arcjet-apps-minor:
+        update-types:
+          - minor
+          - patch
+      # Arcjet packages are grouped alone due to not being major/minor/patch yet
+      arcjet-js:
+        patterns:
+          - 'arcjet'
+          - '@arcjet/*'
+    ignore:
+      # Ignore Connect RPC updates until merged in arcjet-js
+      - dependency-name: '@connectrpc/connect-node'
+        versions: ['>1.5.0']
+      - dependency-name: '@connectrpc/connect-web'
+        versions: ['>1.5.0']
+      # TypeScript 5.6.x seems broken with our combination of deps
+      - dependency-name: 'typescript'
+        versions: ['>=5.6.0']

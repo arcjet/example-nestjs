@@ -55,6 +55,27 @@ npm run start
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
+## Try it out
+
+NestJS is a server-side framework, so you won't see much in the browser. Here
+are some API routes to try:
+
+### Bot protection
+
+The `/bots` route uses a guard to protect the controller. All automated clients
+will receive a 403 response. `curl` is considered an automated client by
+default, so you can test it with:
+
+```bash
+curl -v http://localhost:3000/bots
+```
+
+The `/bots-advanced` route is customized to return a customized response:
+
+```bash
+curl -v http://localhost:3000/bots-advanced
+```
+
 ## Stack
 
 - Auth: [Auth.js](https://authjs.dev/)
