@@ -12,8 +12,8 @@ import {
 } from '@nestjs/common';
 import { NoFilesInterceptor } from '@nestjs/platform-express';
 import { Request } from 'express';
-import { SignupService } from './signup.service.js';
 import { SignupDto } from './signup.dto.js';
+import { SignupService } from './signup.service.js';
 
 @Controller('signup')
 // Sets up the Arcjet protection without using a guard so we can access the
