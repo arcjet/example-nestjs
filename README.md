@@ -16,18 +16,18 @@ features.
 
 ## Features
 
-- Signup form protection uses Arcjet's server-side email verification configured
-  to block disposable providers and ensure that the domain has a valid MX
-  record. It also includes rate limiting and bot protection to prevent automated
-  abuse.
 - Bot protection shows how a page can be protected from automated clients.
 - Rate limiting shows the use of different rate limit configurations depending
   on the authenticated user. A logged-in user can make more requests than an
   anonymous user.
-- Attack protection demonstrates Arcjet Shield, which detects suspicious
-  behavior, such as SQL injection and cross-site scripting attacks.
+- Signup form protection uses Arcjet's server-side email verification configured
+  to block disposable providers and ensure that the domain has a valid MX
+  record. It also includes rate limiting and bot protection to prevent automated
+  abuse.
 - Sensitive info protects against clients sending you sensitive information such
   as PII that you do not wish to handle.
+- Attack protection demonstrates Arcjet Shield, which detects suspicious
+  behavior such as SQL injection and cross-site scripting attacks.
 
 ## Deploy it now
 
@@ -70,11 +70,71 @@ default, so you can test it with:
 curl -v http://localhost:3000/bots
 ```
 
-The `/bots-advanced` route is customized to return a customized response:
+The `/bots-advanced` route returns a more customized response:
 
 ```bash
 curl -v http://localhost:3000/bots-advanced
 ```
+
+### Rate limiting
+
+The `/rate-limit` route uses a fixed window rate limit. Send 3 requests in quick
+succession to see the rate limit in action:
+
+```bash
+curl -v http://localhost:3000/rate-limiting
+```
+
+The `/rate-limit-advanced` route uses a token bucket rate limit with a
+customized response. Send 3 requests in quick succession to see it working:
+
+```bash
+curl -v http://localhost:3000/rate-limiting-advanced
+```
+
+### Sensitive info
+
+The `/sensitive-info` route uses a guard to protect the controller. It will
+block requests containing credit card numbers:
+
+```bash
+curl -v http://localhost:3000/sensitive-info \
+  -H "Content-Type: text/plain" \
+  -X POST \
+  --data "Hello my credit card is 4111111111111111"
+```
+
+The `/sensitive-info-advanced` route returns a more customized response:
+
+```bash
+curl -v http://localhost:3000/sensitive-info-advanced \
+  -H "Content-Type: text/plain" \
+  -X POST \
+  --data "Hello my credit card is 4111111111111111"
+```
+
+### Attack protection
+
+The `/attack` route uses Arcjet Shield to detect and block attacks, such as SQL
+injection and cross-site scripting. To simulate an attack, send a request with
+the special header:
+
+```bash
+curl -v http://localhost:3000/attack \
+  -H "x-arcjet-suspicious: true"
+```
+
+After the 5th request, your IP will be blocked for 15 minutes. Suspicious
+requests must meet a threshold before they are blocked to avoid false positives.
+
+Shield is configured as a default rule in the `app.module.ts` file because you
+typically want to apply it to every route.
+
+## Need help?
+
+Check out [the docs](https://docs.arcjet.com/), [contact
+support](https://docs.arcjet.com/support), or [join our Discord
+server](https://arcjet.com/discord).
 
 ## Stack
 

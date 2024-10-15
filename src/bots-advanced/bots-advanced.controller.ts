@@ -5,8 +5,8 @@ import {
   HttpException,
   HttpStatus,
   Inject,
-  Req,
   Logger,
+  Req,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { BotsAdvancedService } from './bots-advanced.service.js';
@@ -24,7 +24,7 @@ export class BotsAdvancedController {
   ) {}
 
   @Get()
-  async botsAdvanced(@Req() req: Request) {
+  async index(@Req() req: Request) {
     const decision = await this.arcjet
       .withRule(
         detectBot({

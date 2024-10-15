@@ -8,7 +8,7 @@ import { BotsService } from './bots.service.js';
 // don't get access to the decision. See src/bots-advanced/ to see how to access
 // the decision in the controller.
 @UseGuards(ArcjetGuard)
-// Attaches the detectBot rule to this controller
+// Attaches the rule to this controller
 @WithArcjetRules([
   detectBot({
     mode: 'LIVE', // will block requests. Use "DRY_RUN" to log only
@@ -21,7 +21,7 @@ export class BotsController {
   constructor(private readonly botService: BotsService) {}
 
   @Get()
-  bots() {
+  index() {
     return this.botService.message();
   }
 }
