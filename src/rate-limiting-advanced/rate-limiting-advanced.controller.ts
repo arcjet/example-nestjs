@@ -7,9 +7,11 @@ import {
   Inject,
   Logger,
   Req,
+  Res,
 } from '@nestjs/common';
 import { Request } from 'express';
 import { RateLimitingAdvancedService } from './rate-limiting-advanced.service.js';
+import { setRateLimitHeaders } from '@arcjet/decorate';
 
 @Controller('rate-limiting-advanced')
 // Sets up the Arcjet protection without using a guard so we can access the
@@ -24,7 +26,10 @@ export class RateLimitingAdvancedController {
   ) {}
 
   @Get()
-  async index(@Req() req: Request) {
+  // The passthrough option allows us to access the response object so we can
+  // set the rate limit headers. See
+  // https://docs.nestjs.com/controllers#library-specific-approach
+  async index(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
     const decision = await this.arcjet
       .withRule(
         tokenBucket({
@@ -35,6 +40,8 @@ export class RateLimitingAdvancedController {
         }),
       )
       .protect(req, { requested: 5 }); // request 5 tokens
+
+    setRateLimitHeaders(res, decision);
 
     this.logger.log(`Arcjet: id = ${decision.id}`);
     this.logger.log(`Arcjet: decision = ${decision.conclusion}`);
