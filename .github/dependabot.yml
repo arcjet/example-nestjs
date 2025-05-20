@@ -5,11 +5,9 @@ updates:
     schedule:
       interval: daily
     assignees:
-      - blaine-arcjet
-      - e-moran
+      - arcjet/dx-team
     reviewers:
-      - blaine-arcjet
-      - e-moran
+      - arcjet/dx-team
     groups:
       arcjet-apps-major:
         update-types:
@@ -24,9 +22,6 @@ updates:
           - 'arcjet'
           - '@arcjet/*'
     ignore:
-      # NestJS uses Express 4
-      - dependency-name: "@types/express"
-        versions: [">=5"]
-      # TODO: Upgrade to eslint 9
-      - dependency-name: eslint
-        versions: [">=9"]
+      # Synced with engines field in package.json
+      - dependency-name: '@types/node'
+        versions: ['>=21']
