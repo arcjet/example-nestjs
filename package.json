@@ -57,5 +57,10 @@
     "eslint-plugin-prettier": "5.4.1",
     "prettier": "3.5.3",
     "typescript": "5.8.3"
+  },
+  "overrides": {
+    "@nestjs/platform-express": {
+      "multer": "^2.0.1"
+    }
   }
 }
