@@ -4,10 +4,6 @@ updates:
     directory: /
     schedule:
       interval: daily
-    assignees:
-      - arcjet/dx-team
-    reviewers:
-      - arcjet/dx-team
     groups:
       arcjet-apps-major:
         update-types:

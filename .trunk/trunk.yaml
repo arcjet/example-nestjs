@@ -20,7 +20,6 @@ runtimes:
 lint:
   enabled:
     - checkov@3.2.365
-    - eslint@8.57.0
     - git-diff-check
     - markdownlint@0.44.0
     - osv-scanner@1.9.2
