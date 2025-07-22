@@ -1,5 +1,5 @@
-import { Controller, Get, UseGuards } from '@nestjs/common';
 import { ArcjetGuard } from '@arcjet/nest';
+import { Controller, Get, UseGuards } from '@nestjs/common';
 import { AttackService } from './attack.service.js';
 
 @Controller('attack')

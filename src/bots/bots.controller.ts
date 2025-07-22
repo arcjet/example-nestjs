@@ -1,5 +1,5 @@
+import { ArcjetGuard, detectBot, WithArcjetRules } from '@arcjet/nest';
 import { Controller, Get, UseGuards } from '@nestjs/common';
-import { ArcjetGuard, WithArcjetRules, detectBot } from '@arcjet/nest';
 import { BotsService } from './bots.service.js';
 
 @Controller('bots')
