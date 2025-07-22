@@ -47,7 +47,7 @@ export class RateLimitingAdvancedController {
     this.logger.log(`Arcjet: decision = ${decision.conclusion}`);
 
     // Use the IP analysis to customize the response based on the country
-    if (decision.ip.hasCountry() && decision.ip.country == 'JP') {
+    if (decision.ip.hasCountry() && decision.ip.country === 'JP') {
       return this.rateLimitingAdvancedController.messageJP();
     }
 

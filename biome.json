@@ -1,0 +1,25 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.1.2/schema.json",
+  "assist": {
+    "enabled": false
+  },
+  "files": {
+    "includes": ["src/**/*.ts"]
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "javascript": {
+    "parser": {
+      "unsafeParameterDecoratorsEnabled": true
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "style": {
+        "useImportType": "off"
+      }
+    }
+  }
+}
