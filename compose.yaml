@@ -1,0 +1,16 @@
+services:
+  nestjs:
+    build: .
+    command: npm run dev
+    env_file:
+      - .env.local
+    labels:
+      - dev.orbstack.domains=nestjs.arcjet-examples.orb.local
+    ports:
+      - 3000
+    volumes:
+      - .:/app
+      - nestjs_node_modules:/app/node_modules
+
+volumes:
+  nestjs_node_modules:
