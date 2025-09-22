@@ -27,7 +27,7 @@
   "dependencies": {
     "@arcjet/decorate": "1.0.0-beta.11",
     "@arcjet/nest": "1.0.0-beta.11",
-    "@nestjs/common": "11.1.5",
+    "@nestjs/common": "11.1.6",
     "@nestjs/config": "4.0.2",
     "@nestjs/core": "11.1.5",
     "@nestjs/platform-express": "11.1.5",
