@@ -34,7 +34,10 @@ export class SensitiveInfoAdvancedController {
           deny: ['CREDIT_CARD_NUMBER'],
         }),
       )
-      .protect(req);
+      .protect(req, {
+        // Pass the body to be evaluated for sensitive info (locally)
+        sensitiveInfoValue: body,
+      });
 
     this.logger.log(`Arcjet: id = ${decision.id}`);
     this.logger.log(`Arcjet: decision = ${decision.conclusion}`);
