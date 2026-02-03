@@ -57,6 +57,7 @@ export class SignupController {
           },
         }),
       )
+      // @ts-expect-error - https://github.com/arcjet/arcjet-js/issues/5772
       .protect(req, { email: body.email });
 
     this.logger.log(`Arcjet: id = ${decision.id}`);
