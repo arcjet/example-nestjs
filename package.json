@@ -25,8 +25,8 @@
     "start": "nest start"
   },
   "dependencies": {
-    "@arcjet/decorate": "1.1.0-rc",
-    "@arcjet/nest": "1.1.0-rc",
+    "@arcjet/decorate": "1.1.0",
+    "@arcjet/nest": "1.1.0",
     "@nestjs/common": "11.1.11",
     "@nestjs/config": "4.0.2",
     "@nestjs/core": "11.1.11",
