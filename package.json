@@ -27,7 +27,7 @@
   "dependencies": {
     "@arcjet/decorate": "1.4.0",
     "@arcjet/nest": "1.4.0",
-    "@nestjs/common": "11.1.17",
+    "@nestjs/common": "11.1.19",
     "@nestjs/config": "4.0.4",
     "@nestjs/core": "11.1.19",
     "@nestjs/platform-express": "11.1.19",
@@ -37,14 +37,11 @@
     "rxjs": "7.8.2"
   },
   "devDependencies": {
-    "@nestjs/cli": "11.0.19",
-    "@nestjs/schematics": "11.0.10",
+    "@nestjs/cli": "11.0.21",
+    "@nestjs/schematics": "11.1.0",
     "@types/express": "5.0.6",
-    "@types/node": "20.19.37",
-    "prettier": "3.8.1",
+    "@types/node": "20.19.39",
+    "prettier": "3.8.3",
     "typescript": "5.9.3"
-  },
-  "overrides": {
-    "lodash": ">4.17.21"
   }
 }
