@@ -25,23 +25,23 @@
     "start": "nest start"
   },
   "dependencies": {
-    "@arcjet/decorate": "1.6.1",
-    "@arcjet/nest": "1.6.1",
-    "@nestjs/common": "11.1.23",
+    "@arcjet/decorate": "1.8.0",
+    "@arcjet/nest": "1.8.0",
+    "@nestjs/common": "11.1.28",
     "@nestjs/config": "4.0.4",
-    "@nestjs/core": "11.1.23",
-    "@nestjs/platform-express": "11.1.23",
+    "@nestjs/core": "11.1.28",
+    "@nestjs/platform-express": "11.1.28",
     "class-transformer": "0.5.1",
     "class-validator": "0.15.1",
     "reflect-metadata": "0.2.2",
     "rxjs": "7.8.2"
   },
   "devDependencies": {
-    "@nestjs/cli": "11.0.21",
+    "@nestjs/cli": "11.0.24",
     "@nestjs/schematics": "11.1.0",
     "@types/express": "5.0.6",
-    "@types/node": "22.20.0",
-    "prettier": "3.8.3",
+    "@types/node": "22.20.1",
+    "prettier": "3.9.5",
     "typescript": "5.9.3"
   }
 }
