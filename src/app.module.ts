@@ -21,7 +21,7 @@ import { SignupModule } from './signup/signup.module.js';
       validate(config) {
         if (typeof config.ARCJET_KEY !== 'string') {
           throw new Error(
-            'ARCJET_KEY must be set in the environment variables. Get your key at https://app.arcjet.com',
+            'ARCJET_KEY must be set in the environment variables. Get your key at https://console.arcjet.com',
           );
         }
         return config;
